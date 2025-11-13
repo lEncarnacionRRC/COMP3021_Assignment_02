@@ -28,33 +28,6 @@ jobs:
           # list of files that changed across commits
           fetch-depth: 0
           persist-credentials: false
-
-      - name: Run Zizmor
-        uses: zizmorcore/zizmor-action@5ca5fc7a4779c5263a3ffa0e1f693009994446d1 # v0.1.2
-        with:
-          # The inputs to pass to `zizmor`.
-          # This should be a whitespace-separated list of inputs. Inputs will
-          # be split with shell splitting rules.
-          inputs: . # optional, default is .
-          # Whether to run online audits.
-          online-audits: true # optional, default is true
-          # The auditing persona to use.
-          # This can be 'regular' (default), 'pedantic', or 'auditor'.
-          persona: regular # optional, default is regular
-          # The minimum severity to report findings for.
-          # This can be 'unknown', 'informational', 'low', 'medium', or 'high'.
-          # The minimum confidence to report findings for.
-          # This can be 'unknown', 'low', 'medium', or 'high'.
-          # The version of zizmor to use
-          version: latest # optional, default is latest
-          # The GitHub API token to use for both zizmor and
-          # GitHub Advanced Security (if the latter is enabled).
-          token: ${{ github.token }} # optional, default is ${{ github.token }}
-          # Whether to enable GitHub Advanced Security for zizmor's results.
-          # This will use the SARIF output format under the hood and will upload the
-          # results to the repository's security tab.
-          advanced-security: true # optional, default is true
-
       - name: Super-linter
         uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2 # v8.2.1
         env:
