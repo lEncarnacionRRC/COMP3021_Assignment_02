@@ -30,7 +30,7 @@ jobs:
           persist-credentials: false
 
       - name: Run Zizmor
-        uses: zizmorcore/zizmor-action@v0.1.2
+        uses: zizmorcore/zizmor-action@5ca5fc7a4779c5263a3ffa0e1f693009994446d1 # v0.1.2
         with:
           # The inputs to pass to `zizmor`.
           # This should be a whitespace-separated list of inputs. Inputs will
@@ -56,7 +56,7 @@ jobs:
           advanced-security: true # optional, default is true
 
       - name: Super-linter
-        uses: super-linter/super-linter@v8.2.1 # x-release-please-version
+        uses: super-linter/super-linter@4e51915f4a812abf59fed160bb14595c0a38a9e7 # v7.2.0
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
