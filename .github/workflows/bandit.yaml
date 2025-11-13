@@ -1,0 +1,29 @@
+---
+name: Bandit Scan
+
+on: # yamllint disable-line rule:truthy
+  push:
+  pull_request:
+
+permissions: {}
+
+jobs:
+  bandit:
+    name: Bandit Scan
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bandit Scan
+        uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c # v1.0
+        with:
+          path: .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
