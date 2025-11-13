@@ -17,6 +17,8 @@ jobs:
       packages: read
       # To report GitHub Actions status checks
       statuses: write
+      # Required for Zizmor to upload security results
+      security-events: write
 
     steps:
       - name: Checkout code
@@ -59,4 +61,3 @@ jobs:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_MARKDOWN_PRETTIER: false
-          
